@@ -36,8 +36,9 @@ The Calculator, which represents the filtered list that
 all the projects need to be reviewd at TODAY(.today()) 
 by applying Ebbinghaus forgetting curve algorithm.
 '''
+f_days = lambda x: (datetime.date.today() - x).days
 _out = list(filter(lambda k: 
-                    (datetime.date.today() - D[k].date()).days in E,
+                    f_days(D[k].date()) in E,
                     D.keys()))
 
 print(_out)
