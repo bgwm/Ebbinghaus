@@ -41,4 +41,4 @@ _out = list(filter(lambda k:
                     f_days(D[k].date()) in E,
                     D.keys()))
 
-print(_out)
+print(', '.join(_out))
