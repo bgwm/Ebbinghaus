@@ -25,11 +25,21 @@ def datetime_parser(dct):
 
 D = {}
 
+
 '''
-BTW, I didn't handle exception here ...
+record.txt actually always exist, but anyway I will 
+handle it over here.
 '''
-with open('record.txt') as f:
+FILENAME = 'record.txt'
+try:
+    f = open(FILENAME, 'rb')
+except OSError:
+    print('File does not exit')
+    sys.exit()
+
+with f:
     D = json.load(f, object_hook = datetime_parser)
+
 
 '''
 The Calculator, which represents the filtered list that 
